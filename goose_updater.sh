@@ -2,6 +2,8 @@
 
 # Go to location of update python script and run it
 cd /home/deploy/goosewatch-auto
+
+# This script will poll the AGOL service and generate a table with all approved points
 python goose_auto.py
 
 # Go to respository location
