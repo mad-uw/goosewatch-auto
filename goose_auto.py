@@ -32,7 +32,7 @@ response = urllib2.urlopen(req)
 response_data = response.read()
 json_response = json.loads(response_data)
 
-with open('/home/jmccarth/Datasets/GooseWatch/1151GooseWatch.csv','wb') as csvfile:
+with open('/home/deploy/Datasets/GooseWatch/1151GooseWatch.csv','wb') as csvfile:
     #Write header row
     goose_writer = csv.writer(csvfile, delimiter=',')
     goose_writer.writerow(['id','location','latitude','longitude','updated'])
