@@ -33,5 +33,5 @@ else
   git push origin autoupdate
 
   # Push the changes upstream
-  git push -n upstream autoupdate
+  #git push -n upstream autoupdate
 fi

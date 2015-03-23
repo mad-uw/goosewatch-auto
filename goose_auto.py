@@ -3,6 +3,7 @@ import urllib2
 import json
 import time
 import csv
+import bleach
 
 #Get access token
 token_url = 'https://www.arcgis.com/sharing/rest/oauth2/token/'
@@ -39,10 +40,10 @@ with open('/home/deploy/Datasets/GooseWatch/1151GooseWatch.csv','wb') as csvfile
     #Loop through data to make csv
     for f in json_response['features']:
         coords = f['geometry']['coordinates']
-        x = str(coords[0])
-        y = str(coords[1])
-        desc = f['properties']['description']
-        oid = str(f['id'])
+        x = bleach.clean(str(coords[0]))
+        y = bleach.clean(str(coords[1]))
+        desc = bleach.clean(f['properties']['description'])
+        oid = bleach.clean(str(f['id']))
         date = f['properties']['submitdate']
         date_time = time.gmtime(date/1000)
         date_str = time.strftime('%Y-%m-%d %H:%M:%S',date_time)
